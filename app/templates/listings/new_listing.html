@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourApp - New Listing</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* Very light gray background */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-sm p-4 sticky top-0 z-10 border-b border-gray-200">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-2xl font-bold text-gray-800">YourApp</a>
+                <nav class="hidden md:flex space-x-6 text-gray-600">
+                    <a href="index.html" class="hover:text-gray-900 transition duration-200">Home</a>
+                    <a href="events.html" class="hover:text-gray-900 transition duration-200">Events</a>
+                    <a href="#" class="hover:text-gray-900 transition duration-200">Categories</a>
+                    <a href="user_forum.html" class="hover:text-gray-900 transition duration-200">User Forum</a>
+                    <a href="marketplace.html" class="hover:text-gray-900 transition duration-200">Marketplace</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-200 hidden sm:block font-semibold text-gray-900">New Listing</a>
+                <div class="relative group">
+                    <button class="text-gray-600 hover:text-gray-900 focus:outline-none flex items-center transition duration-200">
+                        chipmoreno
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block border border-gray-200">
+                        <a href="my_listings.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">My Listings</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Settings</a>
+                        <a href="#" class="block px-4 py-2 text-red-600 hover:bg-gray-100">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto p-4 md:p-6 lg:p-8">
+
+        <!-- Top Banner Ads Section -->
+        <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-gray-100 rounded-xl shadow-sm p-4 text-center border border-gray-200">
+                <img src="https://placehold.co/600x120/E5E7EB/4B5563?text=Top+Banner+Ad+1" alt="Top Banner Ad" class="w-full h-auto rounded-md mb-2">
+                <h3 class="text-lg font-bold">Exclusive Travel Deals!</h3>
+                <p class="text-sm text-gray-700">Explore new destinations at unbeatable prices.</p>
+                <a href="#" class="mt-2 inline-block text-blue-600 hover:underline font-semibold text-sm">Book Your Trip &gt;</a>
+            </div>
+            <div class="bg-gray-100 rounded-xl shadow-sm p-4 text-center border border-gray-200">
+                <img src="https://placehold.co/600x120/E5E7EB/4B5563?text=Top+Banner+Ad+2" alt="Top Banner Ad" class="w-full h-auto rounded-md mb-2">
+                <h3 class="text-lg font-bold">Home Renovation Services</h3>
+                <p class="text-sm text-gray-700">Transform your living space with our experts.</p>
+                <a href="#" class="mt-2 inline-block text-blue-600 hover:underline font-semibold text-sm">Get a Free Quote &gt;</a>
+            </div>
+        </div>
+
+        <!-- Main Content - New Listing Form -->
+        <section>
+            <h1 class="text-3xl font-bold mb-6">Create a New Listing</h1>
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200 max-w-2xl mx-auto">
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="post-title" class="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                        <input type="text" id="post-title" name="post-title" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g., Brand new 2-bed apartment for sale">
+                    </div>
+                    <div>
+                        <label for="category" class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                        <select id="category" name="category" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">Select a category</option>
+                            <option value="events">Events</option>
+                            <option value="user-forum">User Forum</option>
+                            <option value="marketplace">Marketplace</option>
+                            <option value="housing">Housing</option>
+                            <option value="services">Services</option>
+                            <option value="community">Community</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="post-description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                        <textarea id="post-description" name="post-description" rows="10" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" placeholder="Write a detailed description of your listing..."></textarea>
+                    </div>
+                    <div>
+                        <label for="contact-info" class="block text-sm font-medium text-gray-700 mb-1">Contact Information</label>
+                        <input type="text" id="contact-info" name="contact-info" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g., Phone, Email, WhatsApp">
+                    </div>
+                    <div>
+                        <label for="images" class="block text-sm font-medium text-gray-700 mb-1">Images (Optional)</label>
+                        <input type="file" id="images" name="images" multiple class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Publish Listing</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-6 mt-10">
+        <div class="container mx-auto text-center text-gray-400 text-sm">
+            &copy; 2025 YourApp. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

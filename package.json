@@ -1,0 +1,20 @@
+{
+  "name": "directoryapp-main-2",
+  "version": "1.0.0",
+  "description": "[![Python Version](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/) [![Flask Version](https://img.shields.io/badge/Flask-2.x-lightgrey.svg)](https://flask.palletsprojects.com/) [![SQLAlchemy Version](https://img.shields.io/badge/SQLAlchemy-1.4%2B-red.svg)](https://www.sqlalchemy.org/) [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.12"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.12"
+  }
+}

@@ -1,40 +1,145 @@
-{% extends "base.html" %}
-{% block content %}
-    <div class="container mt-4">
-        <h1 class="mb-4">My Listings</h1>
-        {% if listings %}
-            <div class="row">
-                {% for listing in listings %}
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card shadow-sm h-100 {% if listing.is_sponsored %}border-primary{% endif %}">
-                            {% if listing.is_sponsored %}
-                                <div class="card-header bg-primary text-white">Sponsored</div>
-                            {% endif %}
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title mb-2"><a href="{{ url_for('listings.view_listing', listing_id=listing.id) }}" class="text-decoration-none text-dark">{{ listing.title }}</a></h5>
-                                <p class="card-text flex-grow-1">{{ listing.description | truncate(100, True, '...') }}</p>
-                            </div>
-                            <div class="card-footer bg-white border-top-0 d-flex justify-content-between align-items-center">
-                                <small class="text-muted">Posted {{ listing.created_at.strftime('%Y-%m-%d') }}</small>
-                                <div class="btn-group" role="group" aria-label="Listing Actions">
-                                    <a href="{{ url_for('listings.edit_listing', listing_id=listing.id) }}" class="btn btn-sm btn-outline-secondary">Edit</a>
-                                    <form action="{{ url_for('listings.delete_listing', listing_id=listing.id) }}" method="POST" class="d-inline">
-                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this listing?');">Delete</button>
-                                    </form>
-                                    {% if not listing.is_sponsored %}
-                                        <a href="{{ url_for('listings.boost_listing', listing_id=listing.id) }}" class="btn btn-sm btn-outline-success">Boost</a>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourApp - My Listings</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* Very light gray background */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-sm p-4 sticky top-0 z-10 border-b border-gray-200">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-2xl font-bold text-gray-800">YourApp</a>
+                <nav class="hidden md:flex space-x-6 text-gray-600">
+                    <a href="index.html" class="hover:text-gray-900 transition duration-200">Home</a>
+                    <a href="events.html" class="hover:text-gray-900 transition duration-200">Events</a>
+                    <a href="#" class="hover:text-gray-900 transition duration-200">Categories</a>
+                    <a href="user_forum.html" class="hover:text-gray-900 transition duration-200">User Forum</a>
+                    <a href="marketplace.html" class="hover:text-gray-900 transition duration-200">Marketplace</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="new_listing.html" class="text-gray-600 hover:text-gray-900 transition duration-200 hidden sm:block">New Listing</a>
+                <div class="relative group">
+                    <button class="text-gray-600 hover:text-gray-900 focus:outline-none flex items-center transition duration-200">
+                        chipmoreno
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block border border-gray-200">
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 font-semibold text-gray-900">My Listings</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Settings</a>
+                        <a href="#" class="block px-4 py-2 text-red-600 hover:bg-gray-100">Logout</a>
                     </div>
-                {% endfor %}
+                </div>
             </div>
-        {% else %}
-            <div class="alert alert-info" role="alert">
-                You haven't created any listings yet.
-                <a href="{{ url_for('listings.new_listing') }}" class="alert-link">Create your first listing!</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto p-4 md:p-6 lg:p-8">
+
+        <!-- Top Banner Ads Section -->
+        <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-gray-100 rounded-xl shadow-sm p-4 text-center border border-gray-200">
+                <img src="https://placehold.co/600x120/E5E7EB/4B5563?text=Top+Banner+Ad+1" alt="Top Banner Ad" class="w-full h-auto rounded-md mb-2">
+                <h3 class="text-lg font-bold">Exclusive Travel Deals!</h3>
+                <p class="text-sm text-gray-700">Explore new destinations at unbeatable prices.</p>
+                <a href="#" class="mt-2 inline-block text-blue-600 hover:underline font-semibold text-sm">Book Your Trip &gt;</a>
             </div>
-        {% endif %}
-    </div>
-{% endblock %}
+            <div class="bg-gray-100 rounded-xl shadow-sm p-4 text-center border border-gray-200">
+                <img src="https://placehold.co/600x120/E5E7EB/4B5563?text=Top+Banner+Ad+2" alt="Top Banner Ad" class="w-full h-auto rounded-md mb-2">
+                <h3 class="text-lg font-bold">Home Renovation Services</h3>
+                <p class="text-sm text-gray-700">Transform your living space with our experts.</p>
+                <a href="#" class="mt-2 inline-block text-blue-600 hover:underline font-semibold text-sm">Get a Free Quote &gt;</a>
+            </div>
+        </div>
+
+        <!-- Main Content - My Listings -->
+        <section>
+            <h1 class="text-3xl font-bold mb-6">My Listings</h1>
+
+            <div class="space-y-6">
+                <!-- User's Post 1 (with Edit/Delete buttons) -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Short term rental – cozy, furnished 3-bedroom home</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Enjoy the comfort of a fully furnished home in a quiet and secure gated community, just minutes from Coral Centro on Av. de las Américas...
+                    </p>
+                    <p class="text-base leading-relaxed mb-4">
+                        The house features three spacious bedrooms – one with its own private bathroom – plus a second full bathroom to share. The kitchen comes fully equipped for all your cooking needs...
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Rental Info:</h4>
+                        <p class="text-sm">
+                            Prime location, close to shops, markets, restaurants, and public transportation.<br>
+                            Contact: 098 740 9990
+                        </p>
+                    </div>
+                    <div class="mt-6 flex justify-end space-x-4">
+                        <a href="#" class="inline-block bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition duration-200 shadow-md font-semibold text-sm">Edit</a>
+                        <button class="inline-block bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-200 shadow-md font-semibold text-sm">Delete</button>
+                    </div>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.8K Views • 4 Comments</span>
+                    </div>
+                </div>
+
+                <!-- User's Post 2 (with Edit/Delete buttons) -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">PreserVision eye vitamins - Areds 2 formula for sale</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Eye vitamin and mineral supplement for macular degeneration.
+                        $70 for 2 unopened bottles of PreserVision. Each bottle has 210 mini softgels. Expiration date 2027.
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Contact Beatrice:</h4>
+                        <p class="text-sm">
+                            WhatsApp: 096 790 0367
+                        </p>
+                    </div>
+                    <div class="mt-6 flex justify-end space-x-4">
+                        <a href="#" class="inline-block bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition duration-200 shadow-md font-semibold text-sm">Edit</a>
+                        <button class="inline-block bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-200 shadow-md font-semibold text-sm">Delete</button>
+                    </div>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.2K Views • 0 Comments</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-6 mt-10">
+        <div class="container mx-auto text-center text-gray-400 text-sm">
+            &copy; 2025 YourApp. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

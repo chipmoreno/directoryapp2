@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourApp - Marketplace</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* Very light gray background */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-sm p-4 sticky top-0 z-10 border-b border-gray-200">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-2xl font-bold text-gray-800">YourApp</a>
+                <nav class="hidden md:flex space-x-6 text-gray-600">
+                    <a href="index.html" class="hover:text-gray-900 transition duration-200">Home</a>
+                    <a href="events.html" class="hover:text-gray-900 transition duration-200">Events</a>
+                    <a href="#" class="hover:text-gray-900 transition duration-200">Categories</a>
+                    <a href="user_forum.html" class="hover:text-gray-900 transition duration-200">User Forum</a>
+                    <a href="marketplace.html" class="hover:text-gray-900 transition duration-200 font-semibold text-gray-900">Marketplace</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="new_listing.html" class="text-gray-600 hover:text-gray-900 transition duration-200 hidden sm:block">New Listing</a>
+                <div class="relative group">
+                    <button class="text-gray-600 hover:text-gray-900 focus:outline-none flex items-center transition duration-200">
+                        chipmoreno
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block border border-gray-200">
+                        <a href="my_listings.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">My Listings</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Settings</a>
+                        <a href="#" class="block px-4 py-2 text-red-600 hover:bg-gray-100">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto p-4 md:p-6 lg:p-8">
+
+        <!-- Top Banner Ads Section -->
+        <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-gray-100 rounded-xl shadow-sm p-4 text-center border border-gray-200">
+                <img src="https://placehold.co/600x120/E5E7EB/4B5563?text=Top+Banner+Ad+1" alt="Top Banner Ad" class="w-full h-auto rounded-md mb-2">
+                <h3 class="text-lg font-bold">Exclusive Travel Deals!</h3>
+                <p class="text-sm text-gray-700">Explore new destinations at unbeatable prices.</p>
+                <a href="#" class="mt-2 inline-block text-blue-600 hover:underline font-semibold text-sm">Book Your Trip &gt;</a>
+            </div>
+            <div class="bg-gray-100 rounded-xl shadow-sm p-4 text-center border border-gray-200">
+                <img src="https://placehold.co/600x120/E5E7EB/4B5563?text=Top+Banner+Ad+2" alt="Top Banner Ad" class="w-full h-auto rounded-md mb-2">
+                <h3 class="text-lg font-bold">Home Renovation Services</h3>
+                <p class="text-sm text-gray-700">Transform your living space with our experts.</p>
+                <a href="#" class="mt-2 inline-block text-blue-600 hover:underline font-semibold text-sm">Get a Free Quote &gt;</a>
+            </div>
+        </div>
+
+        <!-- Main Content - Marketplace Listings -->
+        <section>
+            <h1 class="text-3xl font-bold mb-6">Community Marketplace</h1>
+            
+            <div class="space-y-6">
+                <!-- Post: Brand new, luxury 2-bed... for sale -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Brand new, luxury 2-bed. with terrace in Casa Todos Santos, for sale</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        This brand new, luxury, 2-bedroom, 2-bath condo in the highly anticipated Casa Todos Santos building on the Tomebamba River is ready for occupancy and just waiting for you to put your final, magic touches...
+                    </p>
+                    <ul class="list-disc list-inside text-sm mb-4 space-y-1">
+                        <li>Spanning 1,241.95 sq. ft (122.67 sq. meters) — including a private bodega/storage unit</li>
+                        <li>Expansive open-plan living and dining space, stunning kitchen</li>
+                        <li>Full-length glass doors open to your private terrace</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+                        <h4 class="font-semibold mb-2">Property Details:</h4>
+                        <p class="text-sm">
+                            $265,000. Unfurnished, Pet-friendly.<br>
+                            Paseo 3 de Noviembre, Cuenca, Ecuador.<br>
+                            Contact: Ashley Rogers - Ashley@ecuadoratyourservice.com
+                        </p>
+                    </div>
+                    <a href="#" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">View Property Listing</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 9.9K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Post: Ebike specialized urban vado turbo 3.0 -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Ebike specialized urban vado turbo 3.0 11-speed for Sale</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        This bike had 2000 Km and, by default, just received a brand-new motor due to guarantee.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Size M (Accommodate person 5’5”- 5’10”/1.65m-1.78m) Color Charcoal</li>
+                        <li>Fenders, headlight and taillight, bell, rack and tubeless tires</li>
+                        <li>Asking $1,900 but will consider any reasonable offer ($2,600 in store)</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Location & Contact:</h4>
+                        <p class="text-sm">
+                            This bike can be seen in Cuenca or shipped assembled safely and securely (free of charge) to any major city in Ecuador.<br>
+                            Contact: Marc - 098 745 6825
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Inquire About This E-Bike</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.4K Views • 0 Comments</span>
+                    </div>
+                </div>
+                
+                <!-- Post: New, high quality women’s clothes and shoes -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">New, high quality women’s clothes and shoes for Sale</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Looking for quality clothing and shoes from the USA? I have many new and slightly used items to sell.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Women’s dresses, yoga pants, tunics, and blouses; Sizes 12-16 ; $20-$50</li>
+                        <li>Women’s shoes: brand new hiking boots, sandals and sneakers; sizes 6-8, 36-39 $50-$125</li>
+                        <li>Brand new Honey Love Bras for 34-36 B cups $80</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Contact for more info:</h4>
+                        <p class="text-sm">
+                            Contact: LJ Moore - snewz@mac.com / 098 425 4927
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Inquire About Clothes & Shoes</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.2K Views • 0 Comments</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-6 mt-10">
+        <div class="container mx-auto text-center text-gray-400 text-sm">
+            &copy; 2025 YourApp. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
