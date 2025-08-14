@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Conversations</h1>
+        <div class="list-group">
+            <!-- Loop through conversations here -->
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Conversation with [Username]</h5>
+                    <small>3 days ago</small>
+                </div>
+                <p class="mb-1">Regarding listing: [Listing Title]</p>
+            </a>
+            <!-- End loop -->
+        </div>
+    </div>
+{% endblock %}

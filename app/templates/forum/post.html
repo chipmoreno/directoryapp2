@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1>{{ post.title }}</h1>
+        <p>by {{ post.author.username }} on {{ post.timestamp.strftime('%Y-%m-%d') }}</p>
+        <hr>
+        <p>{{ post.body }}</p>
+        <hr>
+        <h3>Comments</h3>
+        {% for comment in comments %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <p>{{ comment.body }}</p>
+                    <small class="text-muted">by {{ comment.author.username }} on {{ comment.timestamp.strftime('%Y-%m-%d') }}</small>
+                </div>
+            </div>
+        {% endfor %}
+        <hr>
+        <h3>Leave a Comment</h3>
+        <form method="POST" action="{{ url_for('forum.new_comment', post_id=post.id) }}">
+            <div class="form-group">
+                <textarea class="form-control" name="body" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}

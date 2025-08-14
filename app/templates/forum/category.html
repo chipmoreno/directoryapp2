@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="mb-4">{{ category.name }}</h1>
+        <a href="{{ url_for('forum.new_post', category_id=category.id) }}" class="btn btn-primary mb-3">New Post</a>
+        <div class="list-group">
+            {% for post in posts %}
+                <a href="{{ url_for('forum.post', post_id=post.id) }}" class="list-group-item list-group-item-action">
+                    <h5 class="mb-1">{{ post.title }}</h5>
+                    <p class="mb-1">by {{ post.author.username }} on {{ post.timestamp.strftime('%Y-%m-%d') }}</p>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

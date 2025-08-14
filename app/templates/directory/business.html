@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1>{{ business.name }}</h1>
+        <p>{{ business.description }}</p>
+        <p><strong>Category:</strong> {{ business.category }}</p>
+        <p><strong>Address:</strong> {{ business.address }}</p>
+        <p><strong>Phone:</strong> {{ business.phone }}</p>
+        <p><strong>Website:</strong> <a href="{{ business.website }}">{{ business.website }}</a></p>
+        <hr>
+        <h3>Reviews</h3>
+        {% for review in reviews %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5>Rating: {{ review.rating }}/5</h5>
+                    <p>{{ review.comment }}</p>
+                    <small class="text-muted">by {{ review.author.username }} on {{ review.timestamp.strftime('%Y-%m-%d') }}</small>
+                </div>
+            </div>
+        {% endfor %}
+        <hr>
+        <h3>Leave a Review</h3>
+        <form method="POST" action="{{ url_for('directory.new_review', business_id=business.id) }}">
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <select class="form-control" id="rating" name="rating">
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}

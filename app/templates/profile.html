@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h2>User Profile</h2>
+<ul>
+    <li><strong>Username:</strong> {{ current_user.username }}</li>
+    <li><strong>Email:</strong> {{ current_user.email }}</li>
+    <li><strong>Roles:</strong>
+        {% for role in current_user.roles %}
+            {{ role.name }}{% if not loop.last %}, {% endif %}
+        {% else %}
+            No roles assigned.
+        {% endfor %}
+    </li>
+</ul>
+{% endblock %}

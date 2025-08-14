@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourApp - Community Listings</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* Very light gray background */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-sm p-4 sticky top-0 z-10 border-b border-gray-200">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-2xl font-bold text-gray-800">YourApp</a>
+                <nav class="hidden md:flex space-x-6 text-gray-600">
+                    <a href="#" class="hover:text-gray-900 transition duration-200">Home</a>
+                    <a href="#" class="hover:text-gray-900 transition duration-200">Events</a>
+                    <a href="#" class="hover:text-gray-900 transition duration-200">Categories</a>
+                    <a href="#" class="hover:text-gray-900 transition duration-200">User Forum</a>
+                    <a href="#" class="hover:text-gray-900 transition duration-200">Marketplace</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-200 hidden sm:block">New Listing</a>
+                <div class="relative group">
+                    <button class="text-gray-600 hover:text-gray-900 focus:outline-none flex items-center transition duration-200">
+                        chipmoreno
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block border border-gray-200">
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">My Listings</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Settings</a>
+                        <a href="#" class="block px-4 py-2 text-red-600 hover:bg-gray-100">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto p-4 md:p-6 lg:p-8">
+
+        <!-- Top Banner Ads Section - Retained as per previous discussion for immediate ad visibility -->
+        <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-gray-100 rounded-xl shadow-sm p-4 text-center border border-gray-200">
+                <img src="https://placehold.co/600x120/E5E7EB/4B5563?text=Top+Banner+Ad+1" alt="Top Banner Ad" class="w-full h-auto rounded-md mb-2">
+                <h3 class="text-lg font-bold">Exclusive Travel Deals!</h3>
+                <p class="text-sm text-gray-700">Explore new destinations at unbeatable prices.</p>
+                <a href="#" class="mt-2 inline-block text-blue-600 hover:underline font-semibold text-sm">Book Your Trip &gt;</a>
+            </div>
+            <div class="bg-gray-100 rounded-xl shadow-sm p-4 text-center border border-gray-200">
+                <img src="https://placehold.co/600x120/E5E7EB/4B5563?text=Top+Banner+Ad+2" alt="Top Banner Ad" class="w-full h-auto rounded-md mb-2">
+                <h3 class="text-lg font-bold">Home Renovation Services</h3>
+                <p class="text-sm text-gray-700">Transform your living space with our experts.</p>
+                <a href="#" class="mt-2 inline-block text-blue-600 hover:underline font-semibold text-sm">Get a Free Quote &gt;</a>
+            </div>
+        </div>
+
+        <!-- Main Content - All Listings (Now full width, single column for posts) -->
+        <section>
+            <h1 class="text-3xl font-bold mb-6">All Listings</h1>
+
+            <div class="space-y-6">
+                <!-- Hero Post: Last Spot on Board! (Original, used as template) -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">Last Spot on Board! Solo Traveler Dream!</h2>
+                    <p class="text-base md:text-lg leading-relaxed mb-4">
+                        From August 23 to 27, sail aboard the Grand Daphne and explore the Enchanted Islands like never before: swim with sea lions, snorkel with turtles and sharks, spot red-footed boobies, and more.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Private single cabin – NO single supplement</li>
+                        <li>All meals onboard included</li>
+                        <li>Only 16 guests + 9 crew = VIP service</li>
+                    </ul>
+                    <p class="text-sm italic mb-4">(flights not included)</p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Galapagos Itinerary:</h4>
+                        <p class="text-sm">
+                            Day 1 – North Seymour Island<br>
+                            Day 2 – Genovesa Island<br>
+                            Day 3 – Bartolome and Chinese Hat<br>
+                            Day 4 – Santa Cruz Highlands
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Learn More & Book!</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 10.9K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post 1: Wes the Mentalist (Transformed) -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Wes the Mentalist – Amazing Show of Mentalism</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        “I know what you’re thinking”…Wes. MENTALISM – WHERE THOUGHT MEETS REALITY.
+                        You’re thinking, “where can I go, leave my troubles behind, enjoy friendly conversation, make a charitable donation, have some great food, and immerse myself in a mind-blowing experience?”
+                        Wes the Mentalist’s Floor Show is unlike anything you have seen before. It is a spectacle where the audience is part of the show (if you wish to be!)
+                    </p>
+                    <p class="text-base leading-relaxed mb-4">
+                        Come, Suspend Your disbelief and Immerse yourself in a mind-blowing experience. Webster’s Dictionary defines “suspension of disbelief as “allowing oneself to believe that something is true, even if it seems impossible.”
+                        Skeptics are welcomed.
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+                        <h4 class="font-semibold mb-2">Event Details:</h4>
+                        <p class="text-sm">
+                            08/14/2025 at 4 PM. $Contributions Welcome<br>
+                            Paucarbamba y Avenida Jose Peralta 1-92, Cuenca, Ecuador.<br>
+                            Contact: 593 96 251 7934
+                        </p>
+                    </div>
+                    <a href="#" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Get Tickets & Details</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 10.2K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post 2: Luxury 2-bed with terrace (Transformed) -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Brand new, luxury 2-bed. with terrace in Casa Todos Santos, for sale</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        This brand new, luxury, 2-bedroom, 2-bath condo in the highly anticipated Casa Todos Santos building on the Tomebamba River is ready for occupancy and just waiting for you to put your final, magic touches in this never-before-lived-in, new construction apartment. The condo building has two elevators and a generator. Underground parking is available at an additional cost.
+                    </p>
+                    <p class="text-base leading-relaxed mb-4">
+                        Step into refined riverside living in the coveted Casa Todos Santos, opening September 1, 2025. This exquisite 2-bedroom, 2-bath residence is one of just two remaining condos in the building — and the only one with this spacious layout, terrace design, upgrades, and sun-filled charm. You can even begin moving in now, well ahead of the grand opening. We’ve got the keys!
+                    </p>
+                    <ul class="list-disc list-inside text-sm mb-4 space-y-1">
+                        <li>Spanning 1,241.95 sq. ft (122.67 sq. meters) — including a private bodega/storage unit</li>
+                        <li>Expansive open-plan living and dining space, stunning kitchen</li>
+                        <li>Full-length glass doors open to your private terrace</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+                        <h4 class="font-semibold mb-2">Property Details:</h4>
+                        <p class="text-sm">
+                            $265,000. Unfurnished, Pet-friendly.<br>
+                            Paseo 3 de Noviembre, Cuenca, Ecuador.<br>
+                            Contact: Ashley Rogers - Ashley@ecuadoratyourservice.com
+                        </p>
+                    </div>
+                    <a href="#" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">View Property Listing</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 9.9K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Ad Post: Limited Time Offer (Transformed to full text ad) -->
+                <div class="bg-gray-100 rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">🔥 Limited Time Offer: 50% Off Online Courses! 🔥</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Unlock your potential with our extensive range of online courses. From coding to creative writing, learn new skills at your own pace. Our flexible learning environment allows you to study anytime, anywhere, with expert instructors and a supportive community.
+                    </p>
+                    <p class="text-base leading-relaxed mb-4">
+                        This is a special, limited-time offer: Get a massive 50% off all courses this week only! Don't miss out on this incredible opportunity to invest in yourself and boost your career or personal development.
+                    </p>
+                    <a href="#" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Enroll Now & Save!</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Sponsored Content by: LearnSphere</span>
+                    </div>
+                </div>
+
+                <!-- More Dummy Posts - Transformed to full text style -->
+
+                <!-- Dummy Post: Do you need long term eldercare -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Do you need long term eldercare - Residencia Vilcabamba</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Our facility offers long-term care services for senior citizens in a small, quiet facility in Barrio La Florida, Vilcabamba. We also offer short-term care with day rates for those recovering from surgery, hospitalization, or other injury.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Six private rooms (contact for availability), three with private baths, large windows.</li>
+                        <li>Open-air dining room, garden area, comfortable lounge.</li>
+                        <li>Run by Sonia Capa, certified nurse and physical therapist; on-site medical care.</li>
+                        <li>Nutritious meals, physical and occupational therapy, group activities.</li>
+                        <li>Complete care for every level of infirmity, including wheelchair bound, bedridden, or incontinent.</li>
+                    </ul>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Contact Residencia Vilcabamba</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.6K Views • 56 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Leo’s Nuts, Cuenca -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Leo’s Nuts, Cuenca - Healthy and Flavorful Products</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        We are Leonor and Leonela, passionate about bringing you a fine selection of healthy and flavorful products.
+                        From premium nuts like walnuts, almonds and peanuts to fragrant spices that bring life to your cooking,
+                        we have everything to keep your pantry fresh and your body energized.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Homemade specialties: rich chocolate cake, moist banana bread</li>
+                        <li>Almond and walnut loaves, carrot cake, sweet peanuts, caramelized almonds, granola</li>
+                        <li>Many more irresistible treats!</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Visit Us:</h4>
+                        <p class="text-sm">
+                            Guayas 4-72 y Remigio Crespo, Cuenca<br>
+                            Contact: 098 379 9435 / 099 929 3068
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Explore Products</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.7K Views • 2 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Certified vs licensed teachers -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Certified vs licensed teachers — hire a pro</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Anyone can become certified within a matter of months. Licensure in the US takes years. Teaching is a profession, not a hobby. If you want fluency, hire a pro, not a hobbyist.
+                    </p>
+                    <p class="text-base leading-relaxed mb-4">
+                        Improve your English or Spanish skills with a professional teacher at CAEMI. The instructor taught English in the United States for 25 years and has four years of teaching experience in Ecuador. Their education, training, and experience allow them to tailor lessons to meet your specific needs.
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">CAEMI Classes:</h4>
+                        <p class="text-sm">
+                            Certified American English Mastery Institute is welcoming English and beginning Spanish students.
+                            Contact the institute to begin classes or for more information. References are available.<br>
+                            Contact: Maureen Seals - WhatsApp 096 711 7397
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Learn More About CAEMI</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.4K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Short term rental -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Short term rental – cozy, furnished 3-bedroom home</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Enjoy the comfort of a fully furnished home in a quiet and secure gated community, just minutes from Coral Centro on Av. de las Américas, Ameba Tienda del Sur, and the Cuenca tramway. Perfect for visitors who want convenience, tranquility, and quick access to the city.
+                    </p>
+                    <p class="text-base leading-relaxed mb-4">
+                        The house features three spacious bedrooms – one with its own private bathroom – plus a second full bathroom to share. The kitchen comes fully equipped for all your cooking needs, and the inviting living and dining areas are perfect for relaxing or entertaining.
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Rental Info:</h4>
+                        <p class="text-sm">
+                            Prime location, close to shops, markets, restaurants, and public transportation.<br>
+                            Contact: 098 740 9990
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Book Your Stay</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.8K Views • 4 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Movingcrew -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Movingcrew, your stress‑free move starts here</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Relocating to or within Cuenca? Let our experienced, reliable team handle every detail so you can focus on enjoying your new home.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Full‑service moving and packing, local and nationwide service across Ecuador.</li>
+                        <li>Careful packing and unpacking with quality materials, inventory and labeling.</li>
+                        <li>Residential and apartment moves (any floor, any size), VIP transportation with driver.</li>
+                        <li>Hourly, daily, or long‑distance rentals, professional, trustworthy chauffeurs.</li>
+                        <li>Comfortable, safe vehicles for airport transfers, sightseeing, or business trips.</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Why choose us?</h4>
+                        <p class="text-sm">
+                            Bilingual service, experienced knowledge of roads, friendly crew with dedicated supervisor.<br>
+                            Contact: Jamil; movingcrewecuador@gmail.com; WhatsApp: +593 98 400 1020
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Get Your Free Estimate</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.6K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Hope is the last thing to be lost! -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Hope is the last thing to be lost! Hope Dental gets it.</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Working remotely in paradise, but your smile isn’t camera-ready? Hope Dental gets it. When your office is wherever you are, your smile is your first impression on every video call. At Hope Dental, we can help you with:
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Flexible scheduling around your time zones/calls</li>
+                        <li>High-tech endodontic treatments (root canals done right)</li>
+                        <li>Complete oral rehabilitation, English consultations, fast treatment plans</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">The Ecuador advantage:</h4>
+                        <p class="text-sm">
+                            Premium dental work at local prices, modern equipment, international standards.<br>
+                            No waiting lists or insurance red tape, tax-deductible healthcare tourism.<br>
+                            Find us: Pio Bravo 5-46 y Mariano Cueva. Contact: +593 96 900 5359
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Book Your Dental Consultation</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.1K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: RC Technology -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">RC Technology – unbeatable phones and prices</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Hi, I’m Renny — originally from India, now happily living in Cuenca with my amazing wife. With years of experience in IT and an MBA, I bring not just products, but real tech expertise you can trust.
+                    </p>
+                    <p class="text-base leading-relaxed mb-4">
+                        At RC Technology, we have several top brands of mobile phones and a wide range of accessories — all at the most competitive prices in the city.
+                        Special Deal: Buy any phone and receive a free gift with your purchase!
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Visit RC Technology:</h4>
+                        <p class="text-sm">
+                            Vargas Machuca 11-22 (between Mariscal Lamar and Gaspar Sangurima)<br>
+                            Mon–Sat | 9:30 AM – 6:30 PM. Call/WhatsApp: 093 995 9950<br>
+                            RC Technology – Tech you trust. Prices you can’t resist.
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Shop Now for Tech Deals</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.8K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: El Granel -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Raw cashews, unsalted butter, and real cream? At El Granel!</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        At El Granel, we stock what expats actually want – not just what’s popular locally.
+                        Bring your own containers (we love eco-friendly shoppers!) and fill up on:
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Raw cashews that actually taste fresh</li>
+                        <li>Real unsalted butter, Pure cream (60% fat)</li>
+                        <li>Organic oats and sugar-free dried fruits</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Find Us:</h4>
+                        <p class="text-sm">
+                            Fair prices, quality products. No “foreigner tax” here.<br>
+                            Coronel Talbot 11-30 y Lamar. Contact: +593 98 736 3320 / https://wa.me/message/RTDEJH66OT3GO1
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Visit El Granel</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.2K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Beautiful Indian handcrafted jewelry -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Beautiful Indian handcrafted jewelry</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Straight from the heart of India — discover our exquisite collection of bronze jewelry adorned with original semi-precious stones.
+                        Each piece is a work of art — from majestic necklaces to elegant earrings, bold bracelets, timeless rings, and enchanting diadems.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>100% handcrafted, Only one of each — truly unique</li>
+                        <li>Inspired by centuries of Indian tradition, Perfect for gifting or adding a royal touch to your look</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Contact & Price:</h4>
+                        <p class="text-sm">
+                            Price: According to the product. Contact: 099 221 5565<br>
+                            Location: Vargas Machuca 11-22 (between Mariscal Lamar and Gaspar Sangurima)
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">View Collection</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.7K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Help us save Simba -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Help us save Simba - Medical Appeal</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        No treatment has improved his condition—we’ve tried everything, but his intestinal damage is severe. Now we must perform an endoscopy. This procedure costs $300, and with the results, we’ll know what to do and what treatment to give him to improve his quality of life.
+                    </p>
+                    <p class="text-base leading-relaxed mb-4">
+                        We know it’s not easy, but without your help, we won’t make it. We need your generosity and love to save him—he’s only 7 months old and deserves to enjoy good health!
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">How to Help:</h4>
+                        <p class="text-sm">
+                            Please help us save his life. You can send your contributions to the following account, and in the payment details, write SIMBA.<br>
+                            ID 0106850001 Savings account JEP 406026810309 In the name of Fernanda Velecela Aguilar<br>
+                            Contact: fervelecela2110@gmail.com
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Donate to Save Simba</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.5K Views • 1 Comment</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: In home dog sitting -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">In home dog sitting and dog walking by CityDogs</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        CityDogs, in-home dog sitting and dog walking services. Got a trip coming up? Whether it’s a weekend getaway or an extended adventure, I’m here to make sure your pet’s routine stays fun, loving, and stress-free.
+                    </p>
+                    <p class="text-base leading-relaxed mb-4">
+                        Think belly rubs, games of fetch, cozy naps, and plenty of tail wags while you’re away. I offer personalized pet care with walks, playtime, and lots of one-on-one attention—basically, your pet becomes my new best friend while you’re gone.
+                        I’ll also send you daily photos and videos, so you can see just how much fun your furry pal is having.
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Services & Contact:</h4>
+                        <p class="text-sm">
+                            In-home dog sitting and daily walk services. References available upon request.<br>
+                            Contact: CityDogs@gmail.com / 099 430 6408
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Book Pet Services</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.2K Views • 0 Comments</span>
+                    </div>
+                </div>
+                
+                <!-- Dummy Post: K-beauty face cleansers -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">K-beauty face cleansers (2) at Gracie’s Naturals</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Skin1004 (brand) Madagascar centella ampoule foam is a pH 5 foam cleanser that thoroughly rids skin of dirt and impurities while leaving a soft, smooth finish. A tiny bit (half a pea size) can easily foam up into a foamy, silky lather and is enough for the entire face.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Vegan and Cruelty Free, All ingredients used are EWG Verified</li>
+                        <li>No harmful Ingredients (No Paraben, No SLS, No artificial fragrance)</li>
+                        <li>Centella Asiatica Extract soothes irritated skin and strengthens the skin barrier</li>
+                        <li>Deep cleanses the skin and removes impurities in pores</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">How to use & Shop:</h4>
+                        <p class="text-sm">
+                            1. Lather up a proper amount, apply it on the face, and massage it in a circular motion for cleansing.
+                            2. Rinse off with lukewarm water, and follow your skincare routine.<br>
+                            Price: $21.90/ 125ml (IVA included). We only use biodegradable and paper bags for our customers.<br>
+                            Address: Hermano Miguel 5-74 y Juan Jaramillo. Business hours: Tue-Fri, 10 AM–1 PM, 2–6 PM; Sat, 10 AM–3 PM<br>
+                            Contact: Gracie: 099 895 4800, gracienaturalshop@gmail.com, FB/INS@gracienaturalshop
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Shop K-Beauty Products</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.3K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Ebike specialized urban vado turbo 3.0 -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Ebike specialized urban vado turbo 3.0 11-speed for Sale</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        This bike had 2000 Km and, by default, just received a brand-new motor due to guarantee.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Size M (Accommodate person 5’5”- 5’10”/1.65m-1.78m) Color Charcoal</li>
+                        <li>Fenders, headlight and taillight, bell, rack and tubeless tires</li>
+                        <li>Asking $1,900 but will consider any reasonable offer ($2,600 in store)</li>
+                        <li>Includes 2 new panniers, UV bike cover, 1 HD locks and helmet</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Location & Contact:</h4>
+                        <p class="text-sm">
+                            This bike can be seen in Cuenca or shipped assembled safely and securely (free of charge) to any major city in Ecuador.<br>
+                            Contact: Marc - 098 745 6825
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Inquire About This E-Bike</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.4K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Gran Feria Sabatino's -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Gran Feria Sabatino’s: delicious foods and unique treats!</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Whether you’re looking for unique treats or food products for your everyday needs, you’ll find them at Saturday’s Gran Feria Sabatino’s.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Baked Goods and Sweets: profiteroles, eclairs, fudge, lemon curd, cakes, cookies, savory tortes</li>
+                        <li>Smoked sausages from Dely Swing, Cheeses and Yogurt (cow and goat milk)</li>
+                        <li>Jarred and Canned Goods: meals in a jar, fruit preserves, jalapeños, caponata</li>
+                        <li>Artesana Family Bakery’s freshly baked breads, Healthful options, Traditional international foods</li>
+                        <li>Chocolate and Coffee, Sauces and Condiments (Honey, BBQ, cheese, picante, etc.)</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Event Details:</h4>
+                        <p class="text-sm">
+                            Our doors will be open by 10 AM on Saturday. Entrance is free.<br>
+                            Location: Sabatino’s Garden Restaurant: Roberto Aguilar y 3 de Noviembre (one block from Plaza Otorongo), Cuenca, Ecuador.<br>
+                            Contact: Mauricio and Dawn - 096 802 2545 or granferiasabatinos@gmail.com
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Learn More About the Feria</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.2K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Discover Chicapán -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Discover Chicapán- The Spirit of the Andes</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Discover the stories woven into every thread at Chicapán. We don’t just make t-shirts — we create wearable stories. Each design showcases original artwork by Ecuadorian artist, Lenin Vallejos, drawing inspiration from Andean legends, spiritual symbols, and the beauty of nature.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Special promotion alert – celebrate culture and save!</li>
+                        <li>Mention GringoPost, Give us a ‘like” on social media, Let us take a photograph of you with your fabulous new tee shirt</li>
+                        <li>We’ll give you a special Chicapán 10% discount</li>
+                        <li>Products are hand-printed in small batches, reflecting our roots in Otavalo, Ecuador.</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Location & Hours:</h4>
+                        <p class="text-sm">
+                            Location: Hermano Miguel 4-18 Calle Larga<br>
+                            Opening Hours: Monday–Saturday 9 AM–noon and 1–7 PM<br>
+                            Contact: Lenin Vallejos
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Visit Chicapán Store</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.7K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Dra. Priscila Matovelle -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Dra. Priscila Matovelle | geriatrics and palliative care</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        I’m Dr. Priscila Matovelle, a specialist in geriatrics and palliative care. Originally from Cuenca, I pursued my medical degree here before continuing my training in Spain, where I also earned a Ph.D. in elderly care.
+                    </p>
+                    <p class="text-base leading-relaxed mb-4">
+                        After years of international experience, I’m thrilled to be back in Cuenca, offering personalized, compassionate, and high-quality medical care to the expat community.
+                        I know firsthand how challenging it can be to navigate healthcare in a foreign country—having lived in Virginia Beach for a year, I truly understand these concerns and am here to provide expert guidance and support.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Home visits for personalized care</li>
+                        <li>Online consultations for convenience anywhere in the world</li>
+                        <li>In-office appointments at Hospital Monte Sinaí, Tower I, Office 403</li>
+                    </ul>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Contact Dra. Matovelle</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.3K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: New, high quality women’s clothes and shoes -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">New, high quality women’s clothes and shoes for Sale</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Looking for quality clothing and shoes from the USA? I have many new and slightly used items to sell.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Women’s dresses, yoga pants, tunics, and blouses; Sizes 12-16 ; $20-$50</li>
+                        <li>Women’s shoes: brand new hiking boots, sandals and sneakers; sizes 6-8, 36-39 $50-$125</li>
+                        <li>Brand new Honey Love Bras for 34-36 B cups $80</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Contact for more info:</h4>
+                        <p class="text-sm">
+                            Contact: LJ Moore - snewz@mac.com / 098 425 4927
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Inquire About Clothes & Shoes</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.2K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Make Nómadas yours for the day! -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Make Nómadas yours for the day! Private Events & Gatherings</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Looking for a unique space for your next celebration or gathering? At Nómadas, we close our doors to the public at 3 PM — which means you can have the entire place all to yourself.
+                    </p>
+                    <p class="text-base leading-relaxed mb-4">
+                        It’s not the same as booking a table or a corner in a restaurant — here, you get the whole space, the cozy atmosphere, the great vibes, and, of course, our delicious food, just for you and your guests.
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Perfect for:</h4>
+                        <p class="text-sm">
+                            Birthdays, baptisms, farewells, welcomes, workshops, and any special moment you want to celebrate in style.<br>
+                            Contact us to book your private event at Nómadas Calle Larga - 096 298 6352
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Book Nómadas for Your Event</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.6K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: My cookies need your help -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">My cookies need your help! (The Cookie Concept)</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Hi! I’m Caty Frenkel, owner of The Cookie Concept. Many of you already know me because you’ve ordered my cookies before. Now I want to expand my cookie horizons, and for that, I’ve just obtained the sanitary permit for my “Oatmeal, Peanut and Chocolate Chunk Cookie”. Yay!
+                    </p>
+                    <p class="text-base leading-relaxed mb-4">
+                        Now I’m looking for places in Cuenca where I could sell them, and I’d love your advice. Where would you recommend I offer these cookies? Maybe you know local shops, cafés, or markets where you think they’d sell well.
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Contact Caty:</h4>
+                        <p class="text-sm">
+                            Your suggestions would mean a lot — thank you for helping me spread the cookie love!<br>
+                            Caty Frenkel - catyfrenkel@gmail.com / 099 252 0103
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Contact Caty & Offer Suggestions</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.1K Views • 2 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: PreserVision eye vitamins -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">PreserVision eye vitamins - Areds 2 formula for sale</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Eye vitamin and mineral supplement for macular degeneration.
+                        $70 for 2 unopened bottles of PreserVision. Each bottle has 210 mini softgels. Expiration date 2027.
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Contact Beatrice:</h4>
+                        <p class="text-sm">
+                            WhatsApp: 096 790 0367
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Inquire About PreserVision</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.2K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Naturopathy, massage and wellness -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Naturopathy, massage and wellness with Jimmy Quintero</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Reconnect your body, mind, and energy — naturally.
+                        28+ years of holistic care. Jimmy Quintero is a certified Naturopathic Technologist, licensed massage therapist, personal trainer, Qi Gong, dance, and yoga instructor. He offers personalized wellness sessions that combine movement and massage for full-body balance.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Massage styles offered: Deep Tissue, Thai, Hawaiian, Swedish, Shiatsu, Relaxation, Trigger Point</li>
+                        <li>Benefits Include: Reduces anxiety, depression and stress, Eases headaches, muscle stiffness and tension, Enhances circulation and skin health</li>
+                        <li>Rates: $25–$60 (depending on type and duration)</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Location & Contact:</h4>
+                        <p class="text-sm">
+                            Carlos Vintimilla y Av. de las Americas, Third floor, Consultation room 4, above Almacences España<br>
+                            Contact: Tabatha Izquierdo: tabatha.izquerdo530@gmail.com, 095 880 4893
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Book Wellness Session</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.1K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Easy Visas-Cuenca -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Easy Visas-Cuenca; we make the visa process easier</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Why choose Easy Visas-Cuenca – because we make the process of obtaining your temporary and permanent visas easy. Additionally, we provide services for visa transfers, citizenship, document translations and obtaining required documents from the USA.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Professional: Meet personally at a neutral location in Cuenca to respond to your visa questions.</li>
+                        <li>Clear understanding of responsibilities, act as an advocate on your behalf.</li>
+                        <li>Guidance and assistance in obtaining required government documentation.</li>
+                        <li>Review documentation and direct you on how to correct any errors prior to submission.</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Contact Us:</h4>
+                        <p class="text-sm">
+                            If you want an easier process in obtaining your visa and cedula, please feel free to reach out to us.<br>
+                            Contact: Craig and Giovanny - info@easyvisas-cuenca.com
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Inquire About Visas</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.6K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: This week at Joes’ Secret Garden! -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">This week at Joes’ Secret Garden! (Vacation & BBQ Dinner)</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Vacationing! Yes – taking a break for a week but then … Coming back strong with our Award-Winning BBQ Dinner, Saturday and Sunday, August 23rd and 24th!
+                    </p>
+                    <p class="text-base leading-relaxed mb-4">
+                        We look forward to seeing you then.
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Contact:</h4>
+                        <p class="text-sm">
+                            KP and Ken - 096 950 6695
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Reserve Your Spot</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.5K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: What can Tecno Gurú do for your tech needs? -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">What can Tecno Gurú do for your tech needs?</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Hello everybody,
+                        Sales, installation configuration, repair and maintenance for: Computers (Desktops, laptops, MacOs or Windows), printers, cell phones, tablets, networks (wired or wireless), servers, cable management, security cameras, electronic locks, smart homes, alarm systems, office and antivirus licenses, TVs, general electronics.
+                    </p>
+                    <p class="text-base leading-relaxed mb-4">
+                        We may have missed something but feel free to ask. We are here to fulfill your tech needs the best we can.
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Visit & Contact:</h4>
+                        <p class="text-sm">
+                            We are located on Luis Moreno Mora #585, between Nicanor Aguilar and Roberto Crespo Toral.<br>
+                            Follow us on Facebook and Instagram: tecnoguruec. Look us up on Google Maps as Tecno Gurú<br>
+                            Contact: Luis and Sebastián - Phone #096 895 7920 / tecnoguru@tecnoguruec.com
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Get Tech Support</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.4K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Recommendation for: Physio Gym, physical therapy -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Recommendation for: Physio Gym, physical therapy</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        I cannot say enough good things about this physical therapy facility. The staff are very knowledgeable, friendly, and professional.
+                        I had my first surgery ever on my knee, so the entire surgical and physical therapy process was new for me. Isabel and her team did a great job of making me feel comfortable and safe while working on my knee.
+                    </p>
+                    <p class="text-base leading-relaxed mb-4">
+                        The facility is spotless and has everything you need to get back to 100%. Isabel and her staff have a wide array of methods that fit everyone’s preferences and needs. They even have classes to help with coordination, flexibility, and strength, which we all need for walking around Cuenca/Ecuador.
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Location & Contact:</h4>
+                        <p class="text-sm">
+                            Address: Avenida Isabel La Catolica 2-86, Cuenca, Ecuador.<br>
+                            Contact: 098 878 1364. Recommended by, Laura Fleming: lauraefleming@yahoo.com
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Visit Physio Gym</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.4K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: Psyllium husk is available! -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">Psyllium husk is available at Gramm!</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        Dear Gramm friends, we have psyllium available. Here we share some information about it:
+                        Psyllium, similarly to other soluble fibers, passes through the small intestine without being completely broken down or absorbed.
+                        Instead, it absorbs water and becomes a viscous compound that benefits constipation, diarrhea, blood sugar, blood pressure, cholesterol, and weight loss.
+                        Psyllium husk is the main active ingredient in Metamucil, a fiber supplement that reduces constipation.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Benefits: Psyllium relieves constipation, may help treat diarrhea, can lower blood sugar levels, may boost satiety and aid weight loss, can lower cholesterol levels, is good for your heart, has prebiotic effects.</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Visit & Contact:</h4>
+                        <p class="text-sm">
+                            We want to reduce the use of plastic, we use paper bags and we invite you to bring your favorite bag.<br>
+                            Sucre 14-14 and Estevez de Toral near San Sebastian Park.<br>
+                            Monday to Friday 9 AM to 5 PM, Saturday. 10 AM to 1 PM. We also have delivery service.<br>
+                            Contact: 099 505 9604 or grammbulkshop@gmail.com. / https://grammspiceshop.blogspot.com
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Shop Psyllium Husk</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.7K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Dummy Post: New pizza place in Cuenca! “Leaundrus Pizza” -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                    <h2 class="text-2xl font-bold mb-4">New pizza place in Cuenca! “Leaundrus Pizza”</h2>
+                    <p class="text-base leading-relaxed mb-4">
+                        We would like to invite you to Leandrus Gourmet Pizza located on the corner of Farol and 12 de Abril Streets.
+                        We offer pizzas in various flavors such as Mexican, Hawaiian, Ham and Cheese, and Pepperoni. A slice of pizza is $1.25.
+                    </p>
+                    <ul class="list-disc list-inside text-sm md:text-base mb-4 space-y-1">
+                        <li>Medium pizza priced at $10, you get a side of fries and a 1-liter Coke.</li>
+                        <li>Our family pizza, priced at $21, comes with 16 slices and is 70 cm in diameter.</li>
+                        <li>In addition to pizzas, we have combo options available: Cheeseburger with fries and soda for $3.50, (4) BBQ wings with a side of salad and fries for $3.50, and Beef lasagna with a side of bread for $2.50.</li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-semibold mb-2">Delivery & Hours:</h4>
+                        <p class="text-sm">
+                            We provide delivery service, so feel free to contact us.<br>
+                            Operating hours are Monday through Saturday from 4:30 to 9:30 PM.<br>
+                            Contact: 096 142 8765 (Leandro)
+                        </p>
+                    </div>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md font-semibold">Order Now from Leaundrus Pizza</a>
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        <span>Aug 14, 2025 • 1.7K Views • 0 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Load More Posts Button (Optional, can be used for dynamic loading) -->
+                <div class="mt-8 text-center">
+                    <button class="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300 transition duration-200 shadow-md font-semibold">Load more posts</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-6 mt-10">
+        <div class="container mx-auto text-center text-gray-400 text-sm">
+            &copy; 2025 YourApp. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

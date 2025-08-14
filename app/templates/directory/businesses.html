@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Business Directory</h1>
+        <a href="{{ url_for('directory.new_business') }}" class="btn btn-primary mb-3">Add Your Business</a>
+        <div class="list-group">
+            {% for business in businesses %}
+                <a href="{{ url_for('directory.business', business_id=business.id) }}" class="list-group-item list-group-item-action">
+                    <h5 class="mb-1">{{ business.name }}</h5>
+                    <p class="mb-1">{{ business.description }}</p>
+                    <small>{{ business.category }}</small>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
